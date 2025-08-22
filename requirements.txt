@@ -1,0 +1,27 @@
+# Este archivo lista todas las dependencias de Python que el proyecto necesita.
+# `pip install -r requirements.txt` instalará todas estas librerías en las versiones especificadas.
+# Fijar las versiones es una buena práctica para asegurar que el entorno sea reproducible.
+
+# --- APIs y Clientes Web ---
+google-generativeai==0.5.4      # Cliente oficial para la API de Google Gemini (el LLM).
+python-dotenv==0.21.1           # Para cargar variables de entorno desde un archivo .env (ej. API keys).
+praw==7.8.1                     # Python Reddit API Wrapper, para interactuar con Reddit.
+google-api-python-client        # Cliente genérico de Google para APIs como YouTube.
+google-auth-oauthlib            # Para manejar la autenticación OAuth 2.0 con Google.
+google-auth-httplib2            # Dependencia para las librerías de Google Auth.
+pytz                            # Para manejar zonas horarias de forma robusta.
+
+# --- Procesamiento Multimedia y Vídeo ---
+yt-dlp>=2025.06.30              # Potente descargador de vídeos de YouTube y otros sitios.
+opencv-python==4.9.0.80         # Librería de visión por computador, usada aquí para la validación de calidad de vídeo.
+moviepy==1.0.3                  # Librería principal para la edición y composición de vídeo.
+tqdm==4.66.1                    # Muestra barras de progreso elegantes para bucles largos.
+
+# --- IA, Machine Learning y Procesamiento de Lenguaje ---
+openai-whisper==20231117        # Modelo de OpenAI para la transcripción de audio a texto (speech-to-text).
+TTS==0.22.0                     # Motor de Coqui TTS para la síntesis de voz (text-to-speech).
+transformers==4.36.2            # Dependencia de Coqui TTS.
+
+# --- Utilidades y Validación ---
+pydantic==1.10.14               # Para la validación estricta de datos (usado para validar las respuestas JSON de la IA).
+tenacity==8.2.3                 # Librería para añadir lógica de reintentos a funciones (no usada activamente pero útil).

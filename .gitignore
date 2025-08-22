@@ -1,0 +1,46 @@
+# Este archivo le dice a Git qué archivos o carpetas debe ignorar y no incluir
+# en el control de versiones. Es crucial para mantener el repositorio limpio
+# y, sobre todo, para evitar subir información sensible como secretos y credenciales.
+
+# --- Archivos de Secretos y Configuración Local ---
+# ¡NUNCA subas estos archivos a un repositorio público!
+.env
+client_secret.json
+token.json
+cookies.txt
+
+# --- Entorno Virtual de Python ---
+# El entorno virtual contiene las librerías instaladas y es específico de cada máquina.
+# No debe estar en el control de versiones; se recrea a partir de requirements.txt.
+reditok-venv/
+*venv*/
+
+# --- Archivos de Caché y Compilados de Python ---
+# Estos archivos son generados automáticamente por Python y no son parte del código fuente.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Archivos del Sistema Operativo ---
+# Archivos de metadatos específicos de macOS que no deben estar en el repositorio.
+.DS_Store
+
+# --- Dependencias y Archivos Grandes ---
+# La carpeta de assets contiene archivos binarios pesados (vídeos, audios, modelos).
+# Subirlos a Git haría el repositorio extremadamente grande y lento.
+# Estos archivos se deben generar o descargar en la máquina donde se ejecuta el proyecto.
+/assets/raw_videos/
+/assets/segments/
+/assets/sessions/
+
+# --- Archivos de Log y Estado ---
+# Estos archivos se generan durante la ejecución del programa y no son parte del código.
+# Mantienen un registro del estado (posts procesados, logs de sesión, etc.).
+*.log
+processed_posts.txt
+processed_raw_videos.txt
+
+# --- Caché de Docker ---
+# Carpetas que podrían usarse para almacenar caché local de Docker.
+docker_cache/

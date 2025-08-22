@@ -1,0 +1,29 @@
+# Define los servicios que componen la aplicación. En este caso, solo uno.
+services:
+  # Nombre del servicio.
+  reditok:
+    # Construye la imagen de Docker usando el Dockerfile en el directorio actual (.).
+    build: .
+    # Nombre que se le dará al contenedor una vez que se ejecute.
+    container_name: reditok
+    # Política de reinicio: 'always' asegura que el contenedor se reinicie automáticamente si se detiene o falla.
+    restart: always
+    # Carga las variables de entorno desde un archivo .env en la raíz del proyecto.
+    # Esto mantiene las claves de API y otros secretos fuera del código y del control de versiones.
+    env_file:
+      - .env
+    # Mapea volúmenes entre la máquina anfitriona y el contenedor:
+    # - ".:/app": Mapea el directorio actual del proyecto en la máquina anfitriona
+    #   al directorio /app dentro del contenedor. Esto es ideal para desarrollo, ya que
+    #   cualquier cambio en el código se refleja instantáneamente dentro del contenedor.
+    volumes:
+      - .:/app
+    # Expone puertos del contenedor a la máquina anfitriona:
+    # - "8080:8080": Mapea el puerto 8080 del contenedor al puerto 8080 de la máquina anfitriona.
+    #   Esto es CLAVE para que el script auth.py funcione, ya que necesita recibir la
+    #   redirección de Google en http://localhost:8080.
+    ports:
+      - "8080:8080"
+    # El comando que se ejecutará cuando el contenedor se inicie.
+    # Inicia la aplicación principal.
+    command: ["python", "main.py"]

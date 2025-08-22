@@ -1,0 +1,63 @@
+# Este archivo funciona de manera similar al .gitignore, pero le dice al demonio de Docker qué archivos y carpetas debe ignorar al construir la imagen. El objetivo es mantener la imagen lo más pequeña y segura posible, evitando copiar archivos innecesarios o sensibles al contexto de construcción.
+
+# --- Archivos y carpetas generados en tiempo de ejecución ---
+
+# No tiene sentido copiar estos directorios a la imagen, ya que la aplicación los creará y llenará dentro del contenedor cuando se ejecute.
+
+assets/raw_videos/
+assets/segments/
+assets/sessions/
+/docker_cache/
+
+# --- Archivos de caché y compilados de Python ---
+
+# El contenedor generará los suyos propios si es necesario.
+
+**pycache**/
+_.pyc
+_.pyo
+\*.pyd
+
+# --- Entornos virtuales locales ---
+
+# Nunca se debe copiar un entorno virtual local a una imagen de Docker.
+
+_venv_/
+.env
+
+# --- Metadatos del Control de Versiones y del Editor de Código ---
+
+# No tienen ninguna función dentro de la imagen de Docker y solo añaden peso.
+
+.git/
+.gitignore
+.idea/
+.vscode/
+
+# --- Archivos sensibles (doble seguridad) ---
+
+# Aunque ya están en .gitignore, añadirlos aquí asegura que NUNCA se copien accidentalmente al contexto de la imagen si algo sale mal.
+
+client_secret.json
+token.json
+cookies.txt
+.env
+
+# --- Metadatos del Control de Versiones y del Editor de Código ---
+
+# No tienen ninguna función dentro de la imagen de Docker y solo añaden peso.
+
+.git/
+.gitignore
+.idea/
+.vscode/
+
+# --- Archivos sensibles (doble seguridad) ---
+
+# Aunque ya están en .gitignore, añadirlos aquí asegura que NUNCA
+
+# se copien accidentalmente al contexto de la imagen si algo sale mal.
+
+client_secret.json
+token.json
+cookies.txt
