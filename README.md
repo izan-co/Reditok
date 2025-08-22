@@ -11,6 +11,7 @@
 El bot opera en un ciclo continuo, siguiendo estos pasos para cada vídeo creado:
 
 ```mermaid
+graph TD
     A[🔍 Buscar Historia en Reddit] --> B[✍️ Generar Guion con IA]
     B --> C[🎙️ Sintetizar Voz TTS]
     C --> D[🎬 Ensamblar Vídeo Final]
